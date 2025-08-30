@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Habitat Pod</title>
+    <!-- Tailwind CSS CDN for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            
+            background-image: url('https://innovationorigins.com/app/uploads/2024/01/DAT-digitalisering.png');
+            background-size: cover;
+            background-position: center;
+            background: #0d0c1e;
+            color: #d1d5db;
+        }
+
+        .hero-section {
+            background-color: #1a1835;
+            background-image: url('https://innovationorigins.com/app/uploads/2024/01/DAT-digitalisering.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .glow {
+            text-shadow: 0 0 8px #afcff4, 0 0 16px #60a5fa;
+            
+        }
+
+        .dark-card {
+            background: #78c67600;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            width: 300px;
+        }
+        .card-container-3d {
+            perspective: 1000px;
+            width: 100%;
+            max-width: 800px;
+            height: 250px;
+            position: relative;
+        }
+
+        .card-carousel {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            animation: rotateCards 30s infinite linear;
+        }
+
+        .card-carousel:hover {
+            animation-play-state: paused;
+        }
+
+        .card-item {
+            position: absolute;
+            width: 300px;
+            height: 200px;
+            top: 50%;
+            left: 50%;
+            transform-style: preserve-3d;
+            transform: translate(-50%, -50%) rotateY(calc(var(--rotation) * 1deg)) translateZ(250px);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.4);
+            backdrop-filter: blur(5px);
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+        }
+
+        .card-item-1 { --rotation: 0; }
+        .card-item-2 { --rotation: 72; }
+        .card-item-3 { --rotation: 144; }
+        .card-item-4 { --rotation: 216; }
+        .card-item-5 { --rotation: 288; }
+
+        .hologram-text {
+            color: #00ffff;
+            text-shadow: 0 0 8px #00ffff, 0 0 16px rgba(0, 255, 255, 0.6);
+        }
+
+        @keyframes rotateCards {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
+        }
+    </style>
+</head>
+
+<body class="flex flex-col items-center justify-center min-h-screen">
+
+    <!-- Navigation Header -->
+    <header class="w-full absolute top-0 z-50 p-6 flex justify-between items-center max-w-7xl mx-auto">
+        <div class="flex items-center space-x-2">
+            <svg class="w-6 h-6 text-indigo-400" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h2v-6h-2v6zm0-8h2V7h-2v2z" />
+            </svg>
+            <span class="text-white text-xl font-bold">Set your Environment</span>
+        </div>
+        <nav class="hidden md:flex space-x-8 text-gray-300 font-medium">
+            <a href="controls.html" class="hover:text-white transition duration-300">Controls</a>
+            <a href="city-info.html" class="hover:text-white transition duration-300">City Info</a>
+            <a href="traffic.html" class="hover:text-white transition duration-300">Traffic</a>
+            <a href="complaints.html" class="hover:text-white transition duration-300">Complaints</a>
+            <a href="#" class="hover:text-white transition duration-300">FAQ</a>
+        </nav>
+        <div class="flex items-center space-x-4">
+            <a href="#" class="text-gray-300 hover:text-white transition duration-300 hidden sm:block">Sign In</a>
+            <a href="#" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-5 rounded-full transition duration-300 shadow-md">
+                Set your Pod
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="w-full flex-grow flex flex-col items-center justify-center text-center p-8 hero-section">
+        <div class="max-w-4xl mx-auto z-10 relative mt-24" style="height: 500px;">
+            <div class="bg-purple-800 bg-opacity-30 border border-purple-600 rounded-full px-4 py-1 inline-flex items-center text-sm font-medium text-purple-200 mb-4">
+                <span class="animate-pulse w-2 h-2 bg-purple-400 rounded-full mr-2"></span>
+                Create your own city climate
+            </div>
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-4">
+                Smart Habitat Pod
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-8" style="color: #28273c;">
+               A real-time controlled environment demo for urban or off-world living. Adjust climate, lighting, and resource flows for optimal living conditions
+            </p>
+            <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 shadow-lg">
+                CONTROL ENVIRONMENT
+            </button>
+        </div>
+
+       
+
+        <!-- Stats Section -->
+        <div class="w-full max-w-5xl grid grid-cols-1 sm:grid-cols-3 gap-6 text-center -mt-24 z-20" style="height: 250px;">
+            <div class="dark-card p-6 rounded-2xl flex flex-col items-center">
+                <h2 class="text-5xl font-extrabold text-indigo-400 glow" style="font-size: 80px;">27 F</h2>
+                <p class="text-gray-400 mt-2" style="color: #28273c; font-weight: 800px; font-size: 30px; padding-top: 40px; text-shadow: 0 0 8px #afb0b1, 0 0 16px #858688;">Temperature</p>
+            </div>
+            <div class="dark-card p-6 rounded-2xl flex flex-col items-center">
+                <h2 class="text-5xl font-extrabold text-indigo-400 glow">50%</h2>
+                <p class="text-gray-400 mt-2" style="color: #28273c; font-weight: 800px; font-size: 30px; padding-top: 40px; text-shadow: 0 0 8px #afb0b1, 0 0 16px #858688;">Humidity</p>
+            </div>
+            <div class="dark-card p-6 rounded-2xl flex flex-col items-center">
+                <h2 class="text-5xl font-extrabold text-indigo-400 glow">64 AQI</h2>
+                <p class="text-gray-400 mt-2" style="color: #28273c; font-weight: 800px; font-size: 30px; padding-top: 40px; text-shadow: 0 0 8px #afb0b1, 0 0 16px #858688;">Air quality Index</p>
+            </div>
+           
+        </div>
+        <div class="text-center mb-8">
+        <h1 class="text-4xl font-extrabold text-white mb-2">Rotating Control Panels</h1>
+        <p class="text-gray-400">Please adjust the terms to control the environment.</p>
+    </div>
+
+    <!-- Rotating Controls & Sensors UI Panel -->
+    <div class="card-container-3d"  style="height: 350px;">
+        <div class="card-carousel">
+
+            <!-- Climate Control Card -->
+            <div class="card-item card-item-1 flex flex-col items-center space-y-4">
+                <h3 class="text-xl text-white font-semibold hologram-text">Climate</h3>
+                <div class="flex items-center space-x-2 w-full">
+                    <span class="text-cyan-400">🥶</span>
+                    <input type="range" min="15" max="30" value="22" class="w-full h-2 bg-gray-600 rounded-lg appearance-none cursor-pointer" id="temp-slider">
+                    <span class="text-red-400">🥵</span>
+                </div>
+                <div class="text-center text-gray-300">
+                    <p>Current: <span id="temp-value">22°C</span></p>
+                </div>
+            </div>
+
+            <!-- Lighting Control Card -->
+            <div class="card-item card-item-2 flex flex-col items-center space-y-4">
+                <h3 class="text-xl text-white font-semibold hologram-text">Lighting</h3>
+                <div class="flex items-center space-x-2 w-full">
+                    <span class="text-yellow-200">💡</span>
+                    <input type="range" min="0" max="100" value="70" class="w-full h-2 bg-gray-600 rounded-lg appearance-none cursor-pointer" id="light-slider">
+                    <span class="text-yellow-500">🔆</span>
+                </div>
+                <div class="text-center text-gray-300">
+                    <p>Brightness: <span id="light-value">70%</span></p>
+                </div>
+            </div>
+
+            <!-- Oxygen Flow Card -->
+            <div class="card-item card-item-3 flex flex-col items-center space-y-4">
+                <h3 class="text-xl text-white font-semibold hologram-text">Oxygen Flow</h3>
+                <div class="flex items-center space-x-2 w-full">
+                    <span class="text-blue-400">💨</span>
+                    <input type="range" min="0" max="100" value="80" class="w-full h-2 bg-gray-600 rounded-lg appearance-none cursor-pointer" id="oxygen-slider">
+                    <span class="text-blue-600">🌬️</span>
+                </div>
+                <div class="text-center text-gray-300">
+                    <p>Level: <span id="oxygen-value">80%</span></p>
+                </div>
+            </div>
+
+            <!-- Water Recycler Card -->
+            <div class="card-item card-item-4 flex flex-col items-center space-y-4">
+                <h3 class="text-xl text-white font-semibold hologram-text">Water Recycler</h3>
+                <div class="flex flex-col items-center space-y-4 w-full">
+                    <div class="flex items-center space-x-2 w-full">
+                        <span class="text-cyan-400">💧</span>
+                        <input type="range" min="0" max="100" value="95" class="w-full h-2 bg-gray-600 rounded-lg appearance-none cursor-pointer" id="water-slider">
+                        <span class="text-cyan-600">💦</span>
+                    </div>
+                </div>
+                <div class="text-center text-gray-300">
+                    <p>Efficiency: <span id="water-value">95%</span></p>
+                </div>
+            </div>
+
+            <!-- System Status Card -->
+            <div class="card-item card-item-5">
+                <h3 class="text-xl text-white font-semibold hologram-text mb-4">System Status</h3>
+                <div class="grid grid-cols-1 gap-4 text-gray-400 text-sm">
+                    <p><span class="text-gray-200 font-medium">Internal Pressure:</span> <span id="pressure-sensor">1.02 atm</span></p>
+                    <p><span class="text-gray-200 font-medium">CO₂ Levels:</span> <span id="co2-sensor">420 ppm</span></p>
+                    <p><span class="text-gray-200 font-medium">Humidity:</span> <span id="humidity-sensor">55%</span></p>
+                    <p><span class="text-gray-200 font-medium">Power Consumption:</span> <span id="power-sensor">1.2 kW</span></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </main>
+
+    <script>
+        // --- 3D Scene Setup (Simple Animated Scene) ---
+        let scene, camera, renderer, globe;
+        const canvas = document.getElementById('spaceCanvas');
+
+        function init() {
+            // Scene
+            scene = new THREE.Scene();
+            scene.background = null; // Transparent background
+
+            // Camera
+            camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+            camera.position.z = 2.5;
+
+            // Renderer
+            renderer = new THREE.WebGLRenderer({
+                canvas: canvas,
+                antialias: true,
+                alpha: true
+            });
+            renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+
+            // Lighting
+            const ambientLight = new THREE.AmbientLight(0x404040, 2);
+            scene.add(ambientLight);
+
+            const pointLight = new THREE.PointLight(0xffffff, 1, 100);
+            pointLight.position.set(5, 5, 5);
+            scene.add(pointLight);
+
+            // Simple Globe (Placeholder)
+            const geometry = new THREE.SphereGeometry(1, 32, 32);
+            const material = new THREE.MeshStandardMaterial({
+                color: 0x4a2a9e,
+                wireframe: true
+            });
+            globe = new THREE.Mesh(geometry, material);
+            scene.add(globe);
+
+            window.addEventListener('resize', onWindowResize, false);
+        }
+
+        function onWindowResize() {
+            camera.aspect = canvas.clientWidth / canvas.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            if (globe) {
+                globe.rotation.y += 0.005;
+                globe.rotation.x += 0.002;
+            }
+            renderer.render(scene, camera);
+        }
+
+        window.onload = function() {
+            init();
+            animate();
+        };
+        // Get references to all the sliders and value displays
+        const sliders = {
+            temp: document.getElementById('temp-slider'),
+            light: document.getElementById('light-slider'),
+            oxygen: document.getElementById('oxygen-slider'),
+            water: document.getElementById('water-slider')
+        };
+        
+        const displays = {
+            temp: document.getElementById('temp-value'),
+            light: document.getElementById('light-value'),
+            oxygen: document.getElementById('oxygen-value'),
+            water: document.getElementById('water-value')
+        };
+        
+        const units = {
+            temp: '°C',
+            light: '%',
+            oxygen: '%',
+            water: '%'
+        };
+        
+        // This function updates the display values when a slider is moved
+        function updateUI(sliderId) {
+            const slider = sliders[sliderId];
+            const display = displays[sliderId];
+            if (slider && display) {
+                display.textContent = `${slider.value}${units[sliderId]}`;
+            }
+        }
+        
+        // Add an event listener to each slider to update its value display
+        for (const sliderId in sliders) {
+            if (sliders.hasOwnProperty(sliderId)) {
+                sliders[sliderId].addEventListener('input', () => updateUI(sliderId));
+            }
+        }
+        
+        // Initial update to set the correct display values on load
+        window.onload = function() {
+            for (const sliderId in sliders) {
+                if (sliders.hasOwnProperty(sliderId)) {
+                    updateUI(sliderId);
+                }
+            }
+        };
+    </script>
+
+</body>
+
+</html>

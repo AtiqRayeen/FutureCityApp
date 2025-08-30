@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>City Info - Smart Habitat Pod</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0d0c1e;
+            color: #d1d5db;
+            margin: 0; padding: 0;
+            display: flex; flex-direction: column; align-items: center;
+            min-height: 100vh;
+        }
+        nav {
+            width: 90%;
+            max-width: 800px;
+            margin: 1rem auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            background: linear-gradient(to right, #312e81, #4338ca, #3730a3);
+            border-radius: 2rem;
+            box-shadow: 0 0 15px #0ff;
+        }
+        nav a {
+            color: #d1d5db;
+            font-weight: 600;
+            margin-left: 1.5rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        nav a:first-child {
+            font-weight: 800;
+            font-size: 1.25rem;
+            margin-left: 0;
+        }
+        nav a:hover {
+            color: #00ffff;
+        }
+        .info-container {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: rgba(43, 49, 63, 0.7);
+            border-radius: 2rem;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+            width: 90%;
+        }
+        h2 {
+            color: #00ffff;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .info-item {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Smart Habitat Pod</a>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="controls.html">Controls</a>
+            <a href="city-info.html">City Info</a>
+            <a href="traffic.html">Traffic</a>
+            <a href="complaints.html">Complaints</a>
+        </div>
+    </nav>
+    <div class="info-container">
+        <h2>City Environmental Information</h2>
+        <div class="info-item">Air Quality Index: <span id="air-quality">--</span></div>
+        <div class="info-item">Temperature: <span id="city-temp">-- °C</span></div>
+        <div class="info-item">Humidity: <span id="city-humidity">-- %</span></div>
+        <div class="info-item">Pollution Level: <span id="pollution-level">--</span></div>
+        <div class="info-item">Wind Speed: <span id="wind-speed">-- km/h</span></div>
+    </div>
+    <script>
+        // Mock fetching data and updating the UI
+        document.getElementById('air-quality').textContent = '42 (Good)';
+        document.getElementById('city-temp').textContent = '25 °C';
+        document.getElementById('city-humidity').textContent = '50 %';
+        document.getElementById('pollution-level').textContent = 'Low';
+        document.getElementById('wind-speed').textContent = '15 km/h';
+    </script>
+</body>
+</html>
